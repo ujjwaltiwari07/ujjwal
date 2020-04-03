@@ -11,7 +11,7 @@ Ans....code
 
 #include<stdio.h>
 #include<pthread.h>
-int array[50],n,i;
+int arr[50],n,i;
 
 void *th()
 {
@@ -24,6 +24,40 @@ void *th()
 		scanf("%d",&arr[i]);
 	}
 	for(i=0;i<n;i++)
+	{
+			sum=sum+arr[i];
+		}
+	average=sum/n;
+	printf("The average value is:%f",average);
+}
+void *th1()
+{
+
+
+	int temp=arr[0];
+	for(int i=1;i<n;i++)
+		{
+			if(temp>arr[i])
+			{
+			temp=arr[i];
+			}
+		}
+	printf("\nThe Minimum  value is:=%d",temp);
+
+}
+void *th2()
+{
+
+	int temp=arr[0];
+	for(int i=1;i<n;i++)
+		{
+			if(temp<arr[i])
+			{
+			temp=arr[i];
+			}
+		}
+	printf("\nThe Maximum  value is:=%d",temp);
+	}
 
 
 
